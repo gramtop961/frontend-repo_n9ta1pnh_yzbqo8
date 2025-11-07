@@ -1,26 +1,33 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Features from './components/Features'
+import Products from './components/Products'
+import Contact from './components/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-white text-gray-900">
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <Products />
+        <Contact />
+      </main>
+      <footer className="border-t border-emerald-100 bg-white/60">
+        <div className="container mx-auto px-6 py-10 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p>© {new Date().getFullYear()} PlyPro Distributors. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="#products" className="hover:text-emerald-700">Products</a>
+            <a href="#contact" className="hover:text-emerald-700">Contact</a>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }
